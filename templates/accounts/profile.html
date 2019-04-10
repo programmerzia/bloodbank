@@ -8,8 +8,8 @@
     <div class="col-md-12">
       <div class="profile">
         <div class="info"><img class="user-img" src="{{ user.photo.url }}">
-          <h4>Ziaur Rahman</h4>
-          <p>Software Developer</p>
+          <h4>{{ user.first_name }} {{ user.last_name }}</h4>
+          <p>{{ user.designation }}</p>
         </div>
         <div class="cover-image"></div>
       </div>
@@ -28,7 +28,7 @@
           <div class="timeline-post">
             <div class="post-media"><a href="#"><img src="{{ user.photo.url }}" width="48" height="48"></a>
               <div class="content">
-                <h5><a href="#">Ziaur Rahman</a></h5>
+                <h5><a href="#">{{ user.first_name }} {{ user.last_name }}</a></h5>
                 <p class="text-muted"><small>2 January at 9:30</small></p>
               </div>
             </div>

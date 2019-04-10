@@ -16,7 +16,7 @@
   </head>
   <body class="app sidebar-mini rtl">
     <!-- Navbar-->
-    <header class="app-header"><a class="app-header__logo" href="{% url 'home' %}">Meal Management</a>
+    <header class="app-header"><a class="app-header__logo" href="{% url 'dashboard' %}">Blood Bank</a>
       <!-- Sidebar toggle button--><a class="app-sidebar__toggle" href="#" data-toggle="sidebar" aria-label="Hide Sidebar"></a>
       <!-- Navbar Right Menu-->
       <ul class="app-nav">
@@ -80,36 +80,36 @@
     <aside class="app-sidebar">
       <div class="app-sidebar__user"><img class="app-sidebar__user-avatar" src="{{ user.photo.url }}" alt="User Image" width="48" height="48">
         <div>
-          <p class="app-sidebar__user-name">Ziaur Rahman</p>
-          <p class="app-sidebar__user-designation">Software Developer</p>
+          <p class="app-sidebar__user-name">{{ user.first_name }} {{ user.last_name }}</p>
+          <p class="app-sidebar__user-designation">{{ user.designation }}</p>
         </div>
       </div>
       <ul class="app-menu">
-        <li><a class="app-menu__item" href="{% url 'home' %}"><i class="app-menu__icon fa fa-dashboard"></i><span class="app-menu__label">Dashboard</span></a></li>
+        <li><a class="app-menu__item" href="{% url 'dashboard' %}"><i class="app-menu__icon fa fa-dashboard"></i><span class="app-menu__label">Dashboard</span></a></li>
         {% if user.is_superuser %}
         <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-user"></i><span class="app-menu__label">Member Management</span><i class="treeview-indicator fa fa-angle-right"></i></a>
           <ul class="treeview-menu">
-            <li><a class="treeview-item" href="{% url 'add_member' %}"><i class="icon fa fa-circle-o"></i> Add Member</a></li>
-            <li><a class="treeview-item" href="{% url 'member_list' %}" rel="noopener"><i class="icon fa fa-circle-o"></i> Member List</a></li>
+            <li><a class="treeview-item" href="{% url 'dashboard' %}"><i class="icon fa fa-circle-o"></i> Add Member</a></li>
+            <li><a class="treeview-item" href="{% url 'dashboard' %}" rel="noopener"><i class="icon fa fa-circle-o"></i> Member List</a></li>
           </ul>
         </li>
         {% endif %}
         <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-dollar"></i><span class="app-menu__label">Cost Management</span><i class="treeview-indicator fa fa-angle-right"></i></a>
           <ul class="treeview-menu">
-            <li><a class="treeview-item" href="{% url 'add_cost' %}"><i class="icon fa fa-plus"></i> Add Cost</a></li>
-            <li><a class="treeview-item" href="{% url 'cost_list' %}" rel="noopener"><i class="icon fa fa-list"></i> Cost History</a></li>
+            <li><a class="treeview-item" href="{% url 'dashboard' %}"><i class="icon fa fa-plus"></i> Add Cost</a></li>
+            <li><a class="treeview-item" href="{% url 'dashboard' %}" rel="noopener"><i class="icon fa fa-list"></i> Cost History</a></li>
           </ul>
         </li>
         <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-calendar "></i><span class="app-menu__label">Meal Management</span><i class="treeview-indicator fa fa-angle-right"></i></a>
           <ul class="treeview-menu">
-            <li><a class="treeview-item" href="{% url 'add_meal' %}"><i class="icon fa fa-plus"></i> Add Meal</a></li>
-            <li><a class="treeview-item" href="{% url 'meal_list' %}" rel="noopener"><i class="icon fa fa-list"></i> Meal History</a></li>
+            <li><a class="treeview-item" href="{% url 'dashboard' %}"><i class="icon fa fa-plus"></i> Add Meal</a></li>
+            <li><a class="treeview-item" href="{% url 'dashboard' %}" rel="noopener"><i class="icon fa fa-list"></i> Meal History</a></li>
           </ul>
         </li>
         <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-book"></i><span class="app-menu__label">Fund Management</span><i class="treeview-indicator fa fa-angle-right"></i></a>
           <ul class="treeview-menu">
-            <li><a class="treeview-item" href="{% url 'add_fund' %}"><i class="icon fa fa-plus"></i> Add Fund</a></li>
-            <li><a class="treeview-item" href="{% url 'fund_list' %}" rel="noopener"><i class="icon fa fa-list"></i> Fund History</a></li>
+            <li><a class="treeview-item" href="{% url 'dashboard' %}"><i class="icon fa fa-plus"></i> Add Fund</a></li>
+            <li><a class="treeview-item" href="{% url 'dashboard' %}" rel="noopener"><i class="icon fa fa-list"></i> Fund History</a></li>
           </ul>
         </li>
       </ul>

@@ -13,7 +13,7 @@ def profile(request):
 	user = request.user
 	form = UserForm(instance=user)
 	if request.method == 'POST':
-		form = UserForm(request.POST, request.FILE, instance=user)
+		form = UserForm(request.POST, request.FILES, instance=user)
 		if form.is_valid():
 			form.save()
 	return render(request,'accounts/profile.html',{'form':form})
