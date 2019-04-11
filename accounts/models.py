@@ -13,4 +13,7 @@ class User(AbstractUser):
     designation = models.CharField(max_length=100, default="General Admin")
     def __str__(self):
         return self.first_name + " "+ self.last_name
+class Member(models.Model):
+    name = models.CharField(max_length=255)
+    
 

@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% load bootstrap4 %}
+{% block page_title %}Add User{% endblock %}
+{% block breadcrumb %}add_user{% endblock %}
+{% block title_tag %}Smile is nothing but zero {% endblock %}
+{% block content %}
+	<div class="row">
+		<div class="col-md-12">
+			{% if messages %}
+				{% for msg in messages %}
+				<div class="alert alert-{{ msg.tags }}">
+					{{ msg }}
+				</div>
+				{% endfor %}
+			{% endif %}
+			<form method="post">
+				{% csrf_token %}
+				<div class="form-group">
+					{{ form|crispy }}
+				</div>
+				<input type="submit" class="btn btn-primary" value="Create User">
+			</form>
+		</div>
+	</div>
+{% endblock %}

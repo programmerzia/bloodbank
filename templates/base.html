@@ -87,29 +87,17 @@
       <ul class="app-menu">
         <li><a class="app-menu__item" href="{% url 'dashboard' %}"><i class="app-menu__icon fa fa-dashboard"></i><span class="app-menu__label">Dashboard</span></a></li>
         {% if user.is_superuser %}
-        <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-user"></i><span class="app-menu__label">Member Management</span><i class="treeview-indicator fa fa-angle-right"></i></a>
+        <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-user"></i><span class="app-menu__label">User Management</span><i class="treeview-indicator fa fa-angle-right"></i></a>
           <ul class="treeview-menu">
-            <li><a class="treeview-item" href="{% url 'dashboard' %}"><i class="icon fa fa-circle-o"></i> Add Member</a></li>
-            <li><a class="treeview-item" href="{% url 'dashboard' %}" rel="noopener"><i class="icon fa fa-circle-o"></i> Member List</a></li>
+            <li><a class="treeview-item" href="{% url 'add_user' %}"><i class="icon fa fa-circle-o"></i> Add User</a></li>
+            <li><a class="treeview-item" href="{% url 'list_user' %}" rel="noopener"><i class="icon fa fa-circle-o"></i> User List</a></li>
           </ul>
         </li>
         {% endif %}
-        <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-dollar"></i><span class="app-menu__label">Cost Management</span><i class="treeview-indicator fa fa-angle-right"></i></a>
+        <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-dollar"></i><span class="app-menu__label">Member Management</span><i class="treeview-indicator fa fa-angle-right"></i></a>
           <ul class="treeview-menu">
-            <li><a class="treeview-item" href="{% url 'dashboard' %}"><i class="icon fa fa-plus"></i> Add Cost</a></li>
-            <li><a class="treeview-item" href="{% url 'dashboard' %}" rel="noopener"><i class="icon fa fa-list"></i> Cost History</a></li>
-          </ul>
-        </li>
-        <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-calendar "></i><span class="app-menu__label">Meal Management</span><i class="treeview-indicator fa fa-angle-right"></i></a>
-          <ul class="treeview-menu">
-            <li><a class="treeview-item" href="{% url 'dashboard' %}"><i class="icon fa fa-plus"></i> Add Meal</a></li>
-            <li><a class="treeview-item" href="{% url 'dashboard' %}" rel="noopener"><i class="icon fa fa-list"></i> Meal History</a></li>
-          </ul>
-        </li>
-        <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-book"></i><span class="app-menu__label">Fund Management</span><i class="treeview-indicator fa fa-angle-right"></i></a>
-          <ul class="treeview-menu">
-            <li><a class="treeview-item" href="{% url 'dashboard' %}"><i class="icon fa fa-plus"></i> Add Fund</a></li>
-            <li><a class="treeview-item" href="{% url 'dashboard' %}" rel="noopener"><i class="icon fa fa-list"></i> Fund History</a></li>
+            <li><a class="treeview-item" href="{% url 'add_member' %}"><i class="icon fa fa-plus"></i> Add Member</a></li>
+            <li><a class="treeview-item" href="{% url 'list_member' %}" rel="noopener"><i class="icon fa fa-list"></i> List Member</a></li>
           </ul>
         </li>
       </ul>
