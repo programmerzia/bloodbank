@@ -13,7 +13,15 @@ class User(AbstractUser):
     designation = models.CharField(max_length=100, default="General Admin")
     def __str__(self):
         return self.first_name + " "+ self.last_name
+
 class Member(models.Model):
     name = models.CharField(max_length=255)
-    
+    contact = models.CharField(max_length=13,blank=True,null=True)
+    city = models.CharField(max_length=50)
+    state = models.CharField(max_length=50)
+    zip_code = models.CharField(max_length=10)
+    area = models.CharField(max_length=200)
+    blood_group = models.CharField(max_length=3)
 
+    def __str__(self):
+        return self.name

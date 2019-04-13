@@ -1,7 +1,7 @@
 from django.shortcuts import render,redirect
 from django.contrib.auth.decorators import login_required
-from accounts.forms import UserForm, RegistrationForm
-from accounts.models import User
+from accounts.forms import UserForm, RegistrationForm, MemberForm
+from accounts.models import User,Member
 from django.contrib import messages
 from django.http import HttpResponse
 from django.core.paginator import Paginator
@@ -66,8 +66,29 @@ def list_user(request):
 
 @login_required
 def add_member(request):
-	return HttpResponse('add member here...')
+	form = MemberForm()
+	if request.method == 'POST':
+		form = MemberForm(request.POST)
+		if form.is_valid():
+			form.save()
+			messages.success(request,'Member has been added !')
+			return redirect('add_member')
+	return render(request, 'accounts/add_member.html', {'form':form})		
 
 @login_required
 def list_member(request):
-	return HttpResponse("list member here...")				
+	member_list = Member.objects.all().order_by('-id')
+	paginator = Paginator(member_list,10)
+	try:
+		page = request.GET.get('page','1')
+	except:
+		page = 1
+	try:
+		members = paginator.page(page)
+	except(EmptyPage, InvalidPage):
+		members = paginator.page(paginator.num_pages)	
+	context = {
+		'members':members
+	}
+	
+	return render(request, 'accounts/list_member.html', context)		
