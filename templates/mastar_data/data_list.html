@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{# Load the tag library #}
+{% load bootstrap4 %}
+{# Load CSS and JavaScript #}
+{% bootstrap_css %}
+{% bootstrap_javascript jquery='full' %}
+{% block page_title %}User List{% endblock %}
+{% block breadcrumb %}user_list{% endblock %}
+{% block title_tag %}Smile is nothing but zero {% endblock %}
+{% block content %}
+	<div class="row">
+		<div class="col-md-12">
+			<table class="table table-bordered table-striped">
+				<thead>
+					<tr>
+						<th>S.N</th>
+						<th>Name</th>
+						<th>Username</th>
+						<th>Email</th>
+						<th>Contact</th>
+						<th>Address</th>
+					</tr>
+				</thead>
+				<tbody>
+					<!-- {%if users %}
+					{% for data in datas %}
+						<tr>
+							<td>{{ forloop.counter }}</td>
+							<td>{{ data.first_name }} {{ data.last_name }}</td>
+							<td>{{ data.username }}</td>
+							<td>{{ data.email }}</td>
+							<td>{{ data.contact }}</td>
+							<td>{{ data.area }} {{ data.city }} {{ data.zip_code }}</td>
+						</tr>
+					{% endfor %}
+					{% else %}
+						<tr>
+							<td colspan="6">No user added</td>
+						</tr>
+					{% endif%}	 -->
+				</tbody>
+			</table>
+			<div class="pagination">
+		      <!-- <ul type="none">
+		          {% if users.has_previous %}
+		              <li><a href="?page={{ users.previous_page_number }}" class="pull-left">Previous</a></li>
+		          {% endif %}
+
+		          {% for pg in users.paginator.page_range %}
+		              {% if users.number == pg %}
+		                  <li class="active"><a href="?page={{ pg }}">{{ pg }}</a></li>
+		              {% else %}
+		                  <li><a href="?page={{ pg }}">{{ pg }}</a></li>
+		              {% endif %}
+		          {% endfor %}
+
+		          {% if users.has_next %}
+		              <li><a href="?page={{ users.next_page_number }}" class="pull-left">Next</a></li>
+		          {% endif %}
+		      </ul> -->
+		      <a href="?page=1">First </a>
+		      {% if datas.has_previous %}
+		      <a href="?page={{ datas.previous_page_number }}"> << </a>
+		      {% endif %}
+		      {{ datas.number }} of {{ datas.paginator.num_pages }}
+		      {% if datas.has_next %}
+		      <a href="?page={{ datas.next_page_number }}"> >> </a>
+		      {% endif %}
+		      <a href="?page={{ datas.paginator.num_pages }}"> Last </a>
+		    </div>
+		</div>
+	</div>
+{% endblock %}
