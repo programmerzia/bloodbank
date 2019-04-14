@@ -1,0 +1,40 @@
+body{
+	font-family: sans-serif;
+	margin: 0;
+	padding: 0; 
+}
+.container{
+	width: 1080px!important;
+}
+.header{}
+.header img{
+	width: 100%;
+}
+.menubar{
+	background: brown;
+	overflow: hidden;
+}
+.menubar ul{
+	margin: 0;
+	padding: 0;
+	list-style: none; 
+}
+.menubar ul li{ float: left; border-right: 1px solid #ddd; }
+.menubar ul li:last-child{ float: right; border-right: none; }
+.menubar ul li a{ text-decoration: none; color: white; display: inline-block;padding: 5px 30px; }
+.menubar ul li a:hover{background: maroon;}
+.content{
+	min-height: 55vh;
+}
+.footer{
+	overflow: hidden;
+	background: brown;
+	color: white;
+	text-align: center;
+}
+.footer p{
+	padding: 0px 0px;
+}
+.form_field input{
+	width: 165px;
+}

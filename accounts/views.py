@@ -68,7 +68,7 @@ def list_user(request):
 def add_member(request):
 	form = MemberForm()
 	if request.method == 'POST':
-		form = MemberForm(request.POST)
+		form = MemberForm(request.POST,request.FILES)
 		if form.is_valid():
 			form.save()
 			messages.success(request,'Member has been added !')

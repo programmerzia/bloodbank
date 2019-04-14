@@ -1,0 +1,69 @@
+{% extends 'home.html' %}
+{% load bootstrap4 %}
+{% load crispy_forms_tags %}
+{% block title %}
+	Search Donor
+{% endblock %}
+{% block content %}
+	<div class="row">&nbsp;</div>
+	<div class="row">
+		<div class="col-md-12">
+			<form method="post">
+				{% csrf_token %}
+				{{ form.non_field_errors }}
+				<div class="row">
+					<div class="col-md-2">
+						<div class="form_field">
+							<label for="{{ form.city.id_for_label}}">Select City* {{ form.city }}</label>
+							
+						</div>
+					</div>
+					<div class="col-md-2">
+						<div class="form_field">
+							<label for="{{ form.thana.id_for_label}}">Select Thana* {{ form.thana }}</label>
+							
+						</div>
+					</div>
+					<div class="col-md-2">
+						<div class="form_field">
+							<label for="{{ form.area.id_for_label}}">Select Area* {{ form.area }}</label>
+							
+						</div>
+					</div>
+					<div class="col-md-2" style="">
+						<div class="form_field">
+							<label for="{{ form.blood_group.id_for_label}}">Blood Group* {{ form.blood_group }}</label>
+							
+						</div>
+					</div>
+					<div class="col-md-1">
+						<br>
+						<input type="submit" value="Search">
+					</div>
+				</div>
+				
+			</form>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12">
+			{% if results %}
+				<h4>Your Search Result</h4>
+				{% for result in results %}
+					<table border="0" style="background: #dddeee;width: 100%; margin-bottom: 6px;">
+						<tr style="padding: 2px;">
+							<td style="width: 113px;"><img src="{{ result.photo.url }}" alt="" style="width: 100px;"></td>
+							<td>
+								<h6><b>{{ result.name }}</b></h6>
+								<p>{{ result.city }}, {{ result.thana }}, {{ result.area }} <br>
+								Blood Group : <span style="color:maroon;">{{ result.blood_group}}</span> <br> Contact : {{ result.contact }}</p>
+							</td>
+						</tr>
+					</table>
+				{% endfor %}
+				{% else %}
+				<h4>Sorry ! We could not find any donor.</h4>
+			{% endif %}
+		</div>
+	</div>
+{% endblock %}	
