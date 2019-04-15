@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{# Load the tag library #}
+{% block page_title %}User List{% endblock %}
+{% block breadcrumb %}user_list{% endblock %}
+{% block title_tag %}Smile is nothing but zero {% endblock %}
+{% block content %}
+<div class="row">
+	<div class="col-md-12">
+		<form method="post" class="form-inline">
+			<div class="form-group">
+				{% csrf_token %}
+				{{ form|crispy }}
+				<input type="submit" class="btn btn-success" value="Save">
+			</div>
+		</form>
+	</div>	
+</div>
+<div class="row">
+		<div class="col-md-12">
+			<table class="table table-bordered table-striped">
+				<thead>
+					<tr>
+						<th>S.N</th>
+						<th>MIS ID</th>
+						<th>Option Name</th>
+						<th>Action</th>
+					</tr>
+				</thead>
+				<tbody>
+					{% if options %}
+					{% for data in options %}
+						<tr>
+							<td>{{ forloop.counter }}</td>
+							<td>{{ data.id }}</td>
+							<td>{{ data.name }}</td>
+							<td><a href="#" class="btn btn-primary">Edit</a> &nbsp; <a href="#" class="btn btn-danger">Delete</a></td>
+						</tr>
+					{% endfor %}
+					{% else %}
+						<tr>
+							<td colspan="6">No Option added</td>
+						</tr>
+					{% endif%}	
+				</tbody>
+			</table>
+			<div class="pagination">
+		     <!--  <a href="?page=1">First </a>
+		      {% if datas.has_previous %}
+		      <a href="?page={{ datas.previous_page_number }}"> << </a>
+		      {% endif %}
+		      {{ datas.number }} of {{ datas.paginator.num_pages }}
+		      {% if datas.has_next %}
+		      <a href="?page={{ datas.next_page_number }}"> >> </a>
+		      {% endif %}
+		      <a href="?page={{ datas.paginator.num_pages }}"> Last </a> -->
+		    </div>
+		</div>
+</div>
+{% endblock %}

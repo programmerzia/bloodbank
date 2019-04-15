@@ -95,8 +95,9 @@
         </li>
         <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-list"></i><span class="app-menu__label">Master Data</span><i class="treeview-indicator fa fa-angle-right"></i></a>
           <ul class="treeview-menu">
+            <li><a class="treeview-item" href="{% url 'option' %}" rel="noopener"><i class="icon fa fa-list"></i> Option Management</a></li>
             <li><a class="treeview-item" href="{% url 'add_data' %}"><i class="icon fa fa-plus"></i> Add Data</a></li>
-            <li><a class="treeview-item" href="{% url 'data_list' %}" rel="noopener"><i class="icon fa fa-list"></i> Data List</a></li>
+            <li><a class="treeview-item" href="{% url 'data_list' %}" rel="noopener"><i class="icon fa fa-folder"></i> Data List</a></li>
           </ul>
         </li>
         {% endif %}

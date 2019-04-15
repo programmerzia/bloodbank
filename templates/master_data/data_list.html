@@ -1,10 +1,6 @@
 {% extends 'base.html' %}
 {% load crispy_forms_tags %}
 {# Load the tag library #}
-{% load bootstrap4 %}
-{# Load CSS and JavaScript #}
-{% bootstrap_css %}
-{% bootstrap_javascript jquery='full' %}
 {% block page_title %}User List{% endblock %}
 {% block breadcrumb %}user_list{% endblock %}
 {% block title_tag %}Smile is nothing but zero {% endblock %}
@@ -15,30 +11,28 @@
 				<thead>
 					<tr>
 						<th>S.N</th>
-						<th>Name</th>
-						<th>Username</th>
-						<th>Email</th>
-						<th>Contact</th>
-						<th>Address</th>
+						<th>MIS ID</th>
+						<th>Option Name</th>
+						<th>Option Type</th>
+						<th>Action</th>
 					</tr>
 				</thead>
 				<tbody>
-					<!-- {%if users %}
+					{%if datas %}
 					{% for data in datas %}
 						<tr>
 							<td>{{ forloop.counter }}</td>
-							<td>{{ data.first_name }} {{ data.last_name }}</td>
-							<td>{{ data.username }}</td>
-							<td>{{ data.email }}</td>
-							<td>{{ data.contact }}</td>
-							<td>{{ data.area }} {{ data.city }} {{ data.zip_code }}</td>
+							<td>{{ data.id }}</td>
+							<td>{{ data.option_name }}</td>
+							<td>{{ data.option_id.name }}</td>
+							<td><a href="#" class="btn btn-primary">Edit</a> &nbsp; <a href="#" class="btn btn-danger">Delete</a></td>
 						</tr>
 					{% endfor %}
 					{% else %}
 						<tr>
-							<td colspan="6">No user added</td>
+							<td colspan="6">No Data added</td>
 						</tr>
-					{% endif%}	 -->
+					{% endif%}	
 				</tbody>
 			</table>
 			<div class="pagination">
