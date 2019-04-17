@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .forms import DataForm, OptionForm
 from .models import Data, Option
 from django.contrib import messages
@@ -21,7 +21,13 @@ def data_list(request):
     return render(request, 'master_data/data_list.html', context)
 
 def edit_data(request,pk):
-    return False
+    form = Data.objects.get(pk=pk)
+    if request.method == 'POST':
+    	form = DataForm(request.POST,instance=form)
+    	if form.is_valid():
+    		form.save()
+    		redirect('data_list')
+    return render(request, 'master_data/add_data.html',{'form':form})		
 
 def delete_data(request,pk):
     data = Data.get_object_or_404(pk=pk)

@@ -25,7 +25,7 @@
 							<td>{{ data.id }}</td>
 							<td>{{ data.option_name }}</td>
 							<td>{{ data.option_id.name }}</td>
-							<td><a href="#" class="btn btn-primary">Edit</a> &nbsp; <a href="#" class="btn btn-danger">Delete</a></td>
+							<td><a href="{% url 'edit_data' data.id %}" class="btn btn-primary">Edit</a> &nbsp; <a href="{% url 'delete_data' data.id %}" class="btn btn-danger">Delete</a></td>
 						</tr>
 					{% endfor %}
 					{% else %}
