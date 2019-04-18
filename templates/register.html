@@ -1,0 +1,21 @@
+{% extends 'home.html' %}
+{% load bootstrap4 %}
+{% load crispy_forms_tags %}
+{% block title %}
+	Become a Donor
+{% endblock %}
+{% block content %}
+	<div class="row">&nbsp;</div>
+	<div class="row">
+		<div class="col-md-12">
+            <h2 class="page-header">Please register to become a donor </h2>
+			<form method="post">
+                {% csrf_token %}
+                <div class="form-group">
+                    {{ form|crispy }}
+                </div>
+                <input type="submit" value="Submit" class="btn btn-success">
+			</form>
+		</div>
+	</div>
+{% endblock %}	

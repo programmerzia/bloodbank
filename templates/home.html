@@ -22,10 +22,10 @@
 		<div class="row menubar">
 			<div class="col-md-12">
 				<ul>
-					<li><a href="{% url 'home' %}">Home</a></li>
-					<li><a href="{% url 'search_donor' %}">Search Donor</a></li>
-					<li><a href="#">Become a Donor</a></li>
-					<li><a href="#">Let us Know</a></li>
+					<li><a href="{% url 'main_site:home' %}">Home</a></li>
+					<li><a href="{% url 'main_site:search_donor' %}">Search Donor</a></li>
+					<li><a href="{% url 'main_site:register' %}">Become a Donor</a></li>
+					<li><a href="{% url 'main_site:contact' %}">Let us Know</a></li>
 					<li><a href="{% url 'login' %}">Member Panel</a></li>
 				</ul>
 			</div>

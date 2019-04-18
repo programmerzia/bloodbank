@@ -57,11 +57,10 @@ def list_user(request):
 	try:
 		users = paginator.page(page)
 	except(EmptyPage, InvalidPage):
-		users = paginator.page(paginator.num_pages)	
+		users = paginator.page(paginator.num_pages)
 	context = {
 		'users':users
-	}
-	
+		}
 	return render(request, 'accounts/list_user.html', context)
 
 @login_required

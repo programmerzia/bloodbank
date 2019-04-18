@@ -7,6 +7,6 @@ urlpatterns = [
     path('edit_data/<int:pk>', views.edit_data, name="edit_data"),
     path('delete_data/<int:pk>', views.delete_data, name="delete_data"),
     path('option', views.option, name="option"),
-    path('edit_option', views.edit_option, name="edit_option"),
+    path('edit_option/<int:pk>', views.edit_option, name="edit_option"),
     path('delete_option/<int:pk>', views.delete_data, name="delete_option"),
 ]
